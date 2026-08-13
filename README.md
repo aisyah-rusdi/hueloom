@@ -1,49 +1,57 @@
 # Hueloom
 
-A small riso-printed workshop for mixing, editing, and previewing a colour palette — built with React + Vite.
+**Mix, edit, and preview a colour palette — styled like a risograph print run.**
 
-- **01 — Palette**: up to 7 colours, shown as squares that share the row width (add more, they get thinner).
-- **02 — Editor**: pick any colour from the palette and change its hex, with the old and new value shown side by side.
-- **03 — Preview**: a fixed 7-element mock UI (header, sidebar, sidebar button, text, card, button, card font colour) coloured from your palette, cycling through it if you have fewer than seven. "Randomize style" shuffles which colour lands where; "Restore style" puts them back in palette order.
+Hueloom is a small browser tool for building a colour palette and instantly seeing it applied to a sample interface, so you can tell whether your colours actually work together before you use them anywhere real.
 
-Your palette is saved to `localStorage`, so it survives a page refresh.
+🔗 **[Try it live](https://aisyah-rusdi.github.io/hueloom/)**
 
-## Getting started
+ ![Hueloom screenshot](./screenshot.png)
+
+## What you can do
+
+- **Build a palette** — start with 3 colours and add up to 7, shown as squares that share the row equally so you always see them at a glance. Hover a square for its name and hex code.
+- **Fine-tune any colour** — pick one from the dropdown and change its hex, either by typing or with the colour picker. The old and new value are shown side by side so you can compare before committing.
+- **See it applied** — a sample interface (header, sidebar, buttons, cards, text) is coloured live from your palette, cycling through your colours if you have fewer than seven. Shuffle which colour lands where with "Randomize style," or reset that mapping without touching your actual palette colours.
+- **Nothing leaves your browser** — your palette is saved to `localStorage`, so it's still there next time you visit, and nothing is ever sent to a server.
+
+## Contributing
+
+Issues and pull requests are welcome. If you're proposing a bigger change, opening an issue first to talk it through is appreciated.
+
+---
+
+<details>
+<summary><strong>For developers</strong></summary>
+
+### Running it locally
 
 ```bash
+git clone https://github.com/aisyah-rusdi/hueloom.git
+cd hueloom
 npm install
 npm run dev
 ```
 
-Then open the printed local URL (usually `http://localhost:5173`).
+Then open the local URL it prints (usually `http://localhost:5173`).
 
-## Building for production
+### Deploying your own copy
 
-```bash
-npm run build
-npm run preview   # optional: serve the production build locally
-```
+This repo is set up to deploy to GitHub Pages with one command:
 
-## Deploying to GitHub Pages
-
-This repo is set up to deploy with [`gh-pages`](https://www.npmjs.com/package/gh-pages).
-
-1. Push this project to a GitHub repository.
-2. In `vite.config.js`, set `base` to match your repo name:
+1. In `vite.config.js`, set `base` to match your repo name:
    ```js
    base: "/your-repo-name/",
    ```
-   (If you're deploying to a custom domain or the root of a Pages site instead, set `base: "/"`.)
-3. Run:
+2. Run:
    ```bash
    npm run deploy
    ```
-   This builds the app and pushes the `dist/` folder to a `gh-pages` branch.
-4. In your repo's **Settings → Pages**, set the source to the `gh-pages` branch.
+3. In your repo's **Settings → Pages**, set the source to the `gh-pages` branch.
 
-Your site will be live at `https://<your-username>.github.io/<your-repo-name>/`.
+Your copy will be live at `https://<your-username>.github.io/<your-repo-name>/`.
 
-## Project structure
+### Project structure
 
 ```
 src/
@@ -61,6 +69,10 @@ src/
     Toast.jsx                small status toast
 ```
 
+Built with React + Vite. `npm run build` produces a production build in `dist/`; `npm run preview` serves it locally to sanity-check before deploying.
+
+</details>
+
 ## License
 
-Use it however you like.
+MIT — use it however you like.
